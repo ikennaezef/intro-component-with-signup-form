@@ -61,7 +61,7 @@ function validate(input) {
 			input.parentElement.nextElementSibling.innerText= '';
 			input.parentElement.classList.remove('error');
 			input.nextElementSibling.style.display = 'none';
-		}, 2000);
+		}, 3000);
                 return false;
 	} else return true;	
 }
@@ -81,7 +81,7 @@ function validateMail(mail) {
 			mail.parentElement.nextElementSibling.innerText= '';
 			mail.parentElement.classList.remove('error');
 			mail.nextElementSibling.style.display = 'none';
-		}, 2000);
+		}, 3000);
                 return false;
 	 } else return true;
        }
