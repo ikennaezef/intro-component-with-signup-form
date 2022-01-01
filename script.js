@@ -19,6 +19,17 @@ form.onsubmit = (e) => {
 	validate(lastName);
 	validateMail(email);
 	validate(password);
+        
+        if ( validate(firstName) &&
+             validate(lastname) &&
+             validateMail(email) &&
+             validate(password)) {
+                 firstName.value = '';
+                 lastName.value = '';
+                 email.value = '';
+                 password.value = '';
+                 alert('Success');
+         }
 }
 
 function validate(input) {
@@ -50,16 +61,16 @@ function validate(input) {
 			input.parentElement.nextElementSibling.innerText= '';
 			input.parentElement.classList.remove('error');
 			input.nextElementSibling.style.display = 'none';
-		}, 2000);
-	}
-
-	
+		}, 3000);
+                return false;
+	} else return true;	
 }
 
 function validateMail(mail) {
-	mail.value==='' && validate(mail);
-	const reg = /^\S+@\S+\.\S/;
-	if (!reg.test(mail.value)) {
+        if(mail.value==='') { validate(mail) }
+	else {
+	 const reg = /^\S+@\S+\.\S/;
+	 if (!reg.test(mail.value)) {
 		mail.parentElement.nextElementSibling.style.display = 'block';
 		mail.parentElement.nextElementSibling.innerText= 'Looks like this is not an email';
 		mail.parentElement.classList.add('error');
@@ -70,7 +81,8 @@ function validateMail(mail) {
 			mail.parentElement.nextElementSibling.innerText= '';
 			mail.parentElement.classList.remove('error');
 			mail.nextElementSibling.style.display = 'none';
-		}, 2000);
-
-	}
+		}, 3000);
+                return false;
+	 } else return true;
+       }
 }
