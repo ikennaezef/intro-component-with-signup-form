@@ -22,7 +22,7 @@ form.onsubmit = (e) => {
         
         if ( validate(firstName) &&
              validate(lastname) &&
-             validate(email) &&
+             validateMail(email) &&
              validate(password)) {
                  firstName.value = '';
                  lastName.value = '';
