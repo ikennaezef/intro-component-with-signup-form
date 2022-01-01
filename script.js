@@ -23,7 +23,13 @@ form.onsubmit = (e) => {
         if ( validate(firstName) &&
              validate(lastname) &&
              validate(email) &&
-             validate(password)) alert('Success')
+             validate(password)) {
+                 alert('Success');
+                 firstName.innerText = '';
+                 lastName.innerText = '';
+                 email.innerText = '';
+                 password.innerText = '';
+         }
 }
 
 function validate(input) {
