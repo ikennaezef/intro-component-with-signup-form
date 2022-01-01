@@ -24,10 +24,10 @@ form.onsubmit = (e) => {
              validate(lastname) &&
              validate(email) &&
              validate(password)) {
-                 firstName.innerText = '';
-                 lastName.innerText = '';
-                 email.innerText = '';
-                 password.innerText = '';
+                 firstName.value = '';
+                 lastName.value = '';
+                 email.value = '';
+                 password.value = '';
                  alert('Success');
          }
 }
