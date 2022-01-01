@@ -19,6 +19,11 @@ form.onsubmit = (e) => {
 	validate(lastName);
 	validateMail(email);
 	validate(password);
+        
+        if ( validate(firstName) &&
+             validate(lastname) &&
+             validate(email) &&
+             validate(password)) alert('Success')
 }
 
 function validate(input) {
@@ -51,15 +56,15 @@ function validate(input) {
 			input.parentElement.classList.remove('error');
 			input.nextElementSibling.style.display = 'none';
 		}, 2000);
-	}
-
-	
+                return false;
+	} else return true;	
 }
 
 function validateMail(mail) {
-	mail.value==='' && validate(mail);
-	const reg = /^\S+@\S+\.\S/;
-	if (!reg.test(mail.value)) {
+        if(mail.value==='') { validate(mail) }
+	else {
+	 const reg = /^\S+@\S+\.\S/;
+	 if (!reg.test(mail.value)) {
 		mail.parentElement.nextElementSibling.style.display = 'block';
 		mail.parentElement.nextElementSibling.innerText= 'Looks like this is not an email';
 		mail.parentElement.classList.add('error');
@@ -71,6 +76,7 @@ function validateMail(mail) {
 			mail.parentElement.classList.remove('error');
 			mail.nextElementSibling.style.display = 'none';
 		}, 2000);
-
-	}
+                return false;
+	 } else return true;
+       }
 }
